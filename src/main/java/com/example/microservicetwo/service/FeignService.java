@@ -2,10 +2,13 @@ package com.example.microservicetwo.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 
-@FeignClient(name="microservice-one",url="localhost:8081")
+import com.example.microservicetwo.config.UserClientConfiguration;
+
+@FeignClient(name="microservice-one",url="localhost:8081",configuration = UserClientConfiguration.class)
 public interface FeignService {
 
-		@GetMapping("/endPoint")
-		public String getValue();
+	@GetMapping("/getMessageFromMS1")
+	public String getMessage();
 }

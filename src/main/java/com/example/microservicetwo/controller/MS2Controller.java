@@ -25,7 +25,7 @@ public class MS2Controller {
 	@GetMapping("/completeMessage")
 	public String getMessage()
 	{
-		String msg1 = service.getValue();
+		String msg1 = service.getMessage();
 		
 		return msg1+" "+"END";
 	}
