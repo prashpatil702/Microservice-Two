@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.microservicetwo.config.UserClientConfiguration;
 
-@FeignClient(name="microservice-one",url="localhost:8081",configuration = UserClientConfiguration.class)
+//@FeignClient(name="microservice-one",url="localhost:8081",configuration = UserClientConfiguration.class)
+//No need of hardcoding the url if we are using eureka 
+@FeignClient(name="microservice-one",configuration = UserClientConfiguration.class)
 public interface FeignService {
 
 	@GetMapping("/getMessageFromMS1")
