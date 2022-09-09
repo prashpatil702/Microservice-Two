@@ -2,8 +2,11 @@ package com.example.microservicetwo.config;
 
 import org.springframework.context.annotation.Bean;
 
+import com.example.microservicetwo.exception.CustomErrorDecoder;
+
 import feign.RequestInterceptor;
 import feign.auth.BasicAuthRequestInterceptor;
+import feign.codec.ErrorDecoder;
 //@Configuraion if used over here then it will become global and it will be used by every feign client
 public class UserClientConfiguration {
 	
@@ -22,4 +25,10 @@ public class UserClientConfiguration {
 	public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
 	    return new BasicAuthRequestInterceptor("username", "password");
 	}
+	
+	
+	@Bean
+    public ErrorDecoder errorDecoder() {
+        return new CustomErrorDecoder();
+    }
 }
