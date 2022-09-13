@@ -29,4 +29,11 @@ public class MS2Controller {
 		
 		return msg1+" "+"END";
 	}
+	
+	@GetMapping("/second/getMessage")
+	public String getTextMessage()
+	{
+		return "From second microservice";
+	}
+	
 }
